@@ -1,0 +1,110 @@
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /Users/neojust/.jenkins/workspace/pepline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
++ /usr/local/go/bin/go test .
+ok  	github.com/netology-code/sdvps-materials	(cached)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Upload to Nexus)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ curl -v --upload-file /usr/local/go/bin/go test . http://localhost:8081/repository/pipeline/path/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Could not resolve host: test
+* Closing connection
+curl: (6) Could not resolve host: test
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Could not resolve host: .
+* Closing connection
+curl: (6) Could not resolve host: .
+* Host localhost:8081 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:8081...
+* Connected to localhost (::1) port 8081
+> GET /repository/pipeline/path/ HTTP/1.1
+> Host: localhost:8081
+> User-Agent: curl/8.7.1
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 404 Repository not found
+< Server: Nexus/3.74.0-05 (OSS)
+< X-Content-Type-Options: nosniff
+< Content-Security-Policy: sandbox allow-forms allow-modals allow-popups allow-presentation allow-scripts allow-top-navigation
+< X-XSS-Protection: 1; mode=block
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate, post-check=0, pre-check=0
+< Pragma: no-cache
+< Expires: 0
+< X-Frame-Options: DENY
+< Content-Type: text/html
+< Transfer-Encoding: chunked
+< 
+{ [1541 bytes data]
+100  1529    0  1529    0     0  24877      0 --:--:-- --:--:-- --:--:-- 25065
+* Connection #2 to host localhost left intact
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>404 - Sonatype Nexus Repository</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+
+  <link rel="icon" type="image/png" href="../../../static/rapture/resources/safari-favicon-32x32.png?3.74.0-05" sizes="32x32">
+  <link rel="mask-icon" href="../../../static/rapture/resources/favicon-white.svg?3.74.0-05" color="#00bb6c">
+  <link rel="icon" type="image/png" href="../../../static/rapture/resources/favicon.svg?3.74.0-05" sizes="16x16">
+
+  <link rel="stylesheet" type="text/css" href="../../../static/css/nexus-content.css?3.74.0-05"/>
+</head>
+<body>
+<div class="nexus-header">
+  <a href="../../..">
+    <div class="product-logo">
+      <img src="../../../static/rapture/resources/nxrm-reverse-icon.png?3.74.0-05" alt="Product logo"/>
+    </div>
+    <div class="product-id">
+      <div class="product-id__line-1">
+        <span class="product-name">Sonatype Nexus Repository</span>
+      </div>
+      <div class="product-id__line-2">
+        <span class="product-spec">OSS 3.74.0-05</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="nexus-body">
+  <div class="content-header">
+    <img src="../../../static/rapture/resources/icons/x32/exclamation.png?3.74.0-05" alt="Exclamation point" aria-role="presentation"/>
+    <span class="title">Error 404</span>
+    <span class="description">Not Found</span>
+  </div>
+  <div class="content-body">
+    <div class="content-section">
+      Repository not found
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
