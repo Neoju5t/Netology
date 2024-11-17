@@ -3,7 +3,7 @@
 ---
 
 ### Задание 1
-Скриншот-1 к заданию 1:
+Установка Jenkins:
 ![Скриншот-1](https://github.com/Neoju5t/Netology/blob/fa4dbaed6131f78956487ccfb9197e3e150db04f/img/1.png)
 
 
